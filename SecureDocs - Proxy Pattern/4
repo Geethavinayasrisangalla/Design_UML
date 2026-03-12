@@ -1,0 +1,17 @@
+namespace SecureDocs //Do NOT change the Namespace Name
+{
+    public class ProxyService : IDocumentAccess //Do NOT change the Class Name
+    {
+       public string GetDocumentAccess(string documentId,string name){
+           AuthenticationRepo repo=new AuthenticationRepo();
+           List<Employee> employees=repo.GetAuthorizedEmployees();
+           foreach(Employee emp in employees){
+               if(emp.documentId==documentId && emp.employeeName == name){
+                   DocumentService service = new DocumentService();
+                   return service.GetDocumentAccess(documentId,name);
+               }
+           }
+           return "Unauthorized";
+       }
+    }
+}
