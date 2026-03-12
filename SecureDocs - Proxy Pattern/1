@@ -1,0 +1,17 @@
+namespace SecureDocs //Do NOT change the Namespace Name
+{
+    public class Program //Do NOT change the Class Name
+    {
+       public static void Main(string[] args) //Do NOT change the Method Signature
+        {
+           // Implement your code here
+           Console.WriteLine("Enter the Employee name:");
+           string name= Console.ReadLine();
+           Console.WriteLine("Enter the Document Id:");
+           string id=Console.ReadLine();
+           ProxyService proxy=new ProxyService();
+           string result=proxy.GetDocumentAccess(id,name);
+           Console.WriteLine(result);
+        }
+    }
+}
