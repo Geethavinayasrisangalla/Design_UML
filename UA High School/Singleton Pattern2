@@ -1,0 +1,17 @@
+namespace UAHighschool //Do NOT change the Namespace Name
+{
+    public class Highschool //Do NOT change the Class Name
+    {
+        // Implement your code here
+        public string schoolName;
+        private static Highschool instance= null;
+        private Highschool(){
+        }
+        public static Highschool GetSchoolInstance(){
+            if(instance==null){
+                instance=new Highschool();
+            }
+            return instance;
+        }
+    }
+}
