@@ -1,0 +1,13 @@
+namespace SecureDocs //Do NOT change the Namespace Name
+{
+    public class Employee //Do NOT change the Class Name
+    {
+       // Implement your code here
+       public string documentId;
+       public string employeeName;
+       public Employee(string DocumentId,string EmployeeName){
+           this.documentId=DocumentId;
+           this.employeeName=EmployeeName;
+       }
+    }
+}
