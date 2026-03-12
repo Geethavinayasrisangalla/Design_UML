@@ -1,0 +1,57 @@
+namespace UAHighschool //Do NOT change the Namespace Name
+{
+    public class Program //Do NOT change the Class Name
+    {
+        // Implement your code here
+        public static void Main(string[] args) 
+        //Do NOT change the Method Signature
+        {
+           // Implement your code here
+           int choice=0;
+           do{
+               Console.WriteLine("Enter your choice:");
+               Console.WriteLine("1.Set School Name");
+               Console.WriteLine("2.Get School Name");
+               Console.WriteLine("3.Exit");
+               string input= Console.ReadLine();
+               if(int.TryParse(input,out choice)){
+                   if (choice==1)
+                   {
+                       SetSchoolName();
+                   }
+                   else if( choice ==2)
+                   {
+                       GetSchoolName();
+                   }
+                   else if(choice==3)
+                   {
+                       Console.WriteLine("Thank you!!");
+                   }
+                   else
+                   {
+                       Console.WriteLine("Invalid Choice");
+                       break;
+                   }
+               }else{
+                   Console.WriteLine("Invalid Choice");
+                   break;
+               }
+           }while(choice!=3);
+        }
+        private static void SetSchoolName(){
+            Highschool school=Highschool.GetSchoolInstance();
+            Console.WriteLine("Enter the School Name:");
+            string name= Console.ReadLine();
+            school.schoolName= name;
+            Console.WriteLine($"School name set to {school.schoolName}");
+        }
+        private static void GetSchoolName(){
+            Highschool school=Highschool.GetSchoolInstance();
+            if(string.IsNullOrEmpty(school.schoolName)){
+                Console.WriteLine("School name is not set");
+            }else{
+                Console.WriteLine($"School name is {school.schoolName}");
+            }
+        }
+    }
+}
